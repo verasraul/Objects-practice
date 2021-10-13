@@ -10,8 +10,34 @@
 // cinnamon
 // cumin
 // cocoa
+let favRecipe = {
+  recipeName: "Homemade Icecream",
+  servings: 1,
+  Ingredients: [`dark chocolate`, `milk`, `frozen bananas`, `sunflower butter`, `dates` ]
+  // this.recipeName = recipeName
+};
+// console.log(favRecipe);
+// console.log(`${favRecipe.recipeName}`);
+// console.log(`Servings = ${favRecipe.servings}`);
+// console.log(`Ingredients = ${favRecipe.Ingredients}`);
+let bookList = 
+  [{title: "Sorcerer's Stone",
+  author: "J.K. Rowling",
+  alreadyRead: true},
+  {title: "Prisoner of Azkaban",
+  author: "J.K. Rowling",
+  alreadyRead: true}, 
+  {title: "Chamber of Secrets",
+  author: "J.K. Rowling",
+  alreadyRead: true},
+  {title: "Goblet of Fire",
+  author: "J.K. Rowling",
+  alreadyRead: false}];
 
-
+for (i = 0; i < bookList.length; i++){
+  const element = i;
+  console.log(bookList[element]);
+}
 
 
 //Exercise #2
@@ -52,7 +78,8 @@
 // How do you check if an object is an array or not? 
 // You are checking if arrayList is an array, assuming it were an object before testing it
 // That it is not an object
-let arrayList = [1, 2, 3];
+const arrayList = [1, 2, 3];
+console.log(`${}`)
 
 
 //Exercise #5
