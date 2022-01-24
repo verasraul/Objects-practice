@@ -9,7 +9,7 @@
 // Ingredients:
 // cinnamon
 // cumin
-// cocoa
+// coco
 let favRecipe = {
   recipeName: "Homemade Icecream",
   servings: 1,
@@ -20,6 +20,18 @@ let favRecipe = {
 // console.log(`${favRecipe.recipeName}`);
 // console.log(`Servings = ${favRecipe.servings}`);
 // console.log(`Ingredients = ${favRecipe.Ingredients}`);
+
+
+
+//Exercise #2
+// Create an array of objects, where each object describes
+// a book and has properties for the *title*(a string), *author*(a string)
+// and *alreadyRead* (a boolean indicating if you read it yet)
+// Iterate through the array of objects of books. For each book, log the book title and book
+// author like so: "1984 by George Orwell"
+// Now use an if/else statement to change the output depending on whether you read it
+// or not. If you read it, log a string like "You already read "1984" by George Orwell"
+// and vice versa
 let bookList = 
   [{title: "Sorcerer's Stone",
   author: "J.K. Rowling",
@@ -34,22 +46,15 @@ let bookList =
   author: "J.K. Rowling",
   alreadyRead: false}];
 
-for (i = 0; i < bookList.length; i++){
-  const element = i;
-  console.log(bookList[element]);
-}
-
-
-//Exercise #2
-// Create an array of objects, where each object describes
-// a book and has properties for the *title*(a string), *author*(a string)
-// and *alreadyRead* (a boolean indicating if you read it yet)
-// Iterate through the array of objects of books. For each book, log the book title and book
-// author like so: "1984 by George Orwell"
-// Now use an if/else statement to change the output depending on whether you read it
-// or not. If you read it, log a string like "You already read "1984" by George Orwell"
-// and vice versa
-
+  bookList.map(i => {
+    if (i.alreadyRead == true) {
+      console.log(`You already read "${i.title}" by ${i.author}`);
+    }
+    else if(i.alreadyRead == false){
+      console.log(`You still need to read "${i.title}" by ${i.author}`);
+    }
+    })
+  
 
 
 //Exercise #3
@@ -67,9 +72,16 @@ for (i = 0; i < bookList.length; i++){
 // Print the release year
 // Maybe your favorite came with an extended cut, including deleted scenes. 
 // Write a statement that increases your movie object's duration by 30 minutes. 
+const scarface = {
+  title: "Scarface",
+  director: "Brian De Palma",
+  actors: ["Al Pacino", "Michelle Phifer", "Steven Bauer"],
+  releaseYear: 1983,
+  duration: 170
+};
 
-
-
+console.log(`Movie Title: ${scarface.title} \nDirector: ${scarface.director}\nRelease Year: ${scarface.releaseYear}`);
+console.log(`Extended Cut: ${scarface.duration + 30} minutes`);
 
 
 
@@ -79,8 +91,14 @@ for (i = 0; i < bookList.length; i++){
 // You are checking if arrayList is an array, assuming it were an object before testing it
 // That it is not an object
 const arrayList = [1, 2, 3];
-console.log(`${}`)
+console.log(Array.isArray(arrayList));
 
+let randObject = {
+  title: "Random Object",
+  array: [1, 2, 3]
+};
+
+console.log(Array.isArray(randObject.array));
 
 //Exercise #5
 // Write a function countCharacters that, when given a string as an argument,
@@ -90,7 +108,20 @@ console.log(`${}`)
 // 
 //  }
 // countCharacters("hello"); => {"h": 1, "e": 1, "l": 2, "o": 1}
-
+function countCharacters(string) {
+  let stringItem = {};
+  for (let i = 0; i < string.length; i++){
+    let character = string.charAt(i);
+    if (stringItem[character]) {
+      stringItem[character]++;
+    }
+    else {
+      stringItem[character] = 1;
+    }
+  }
+  console.log(stringItem);
+}
+countCharacters("hello");
 
 //Exercise #6
 // Write a function that accepts two objects
@@ -112,3 +143,11 @@ object2 = {
   d: 5,
   e: 6
 };
+
+function mergeObjects(obj1, obj2) {
+  //One line way to do it - :D
+  let newObject = Object.assign(obj1, obj2);
+  console.log(newObject);
+}
+
+mergeObjects(object1, object2);
